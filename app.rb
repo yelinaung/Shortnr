@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'redis'
+require './helper'
 
 get '/' do
   "This is index"
@@ -13,8 +14,8 @@ end
 post '/index' do
   erb :index
   @sht_string = "Hello World " + sht
+
+  if (params[:url] =~ URI::regexp)
+    @ 
 end
 
-def sht
-  sht_string = rand(36**8).to_s(36)
-end
