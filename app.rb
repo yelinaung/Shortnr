@@ -16,10 +16,11 @@ get '/index' do
 end
 
 post '/index' do
-  @token = sht
-  para_url = params[:url]
-  @redis.set("#{@token}",params[:url])
-  erb :result
+  unless (params[:url] =~ URI::regexp).nil?
+    @token = sht
+    @redis.set("#{@token}", params[:url])
+    erb :index
+  end
 end
 
 get '/:token/?' do

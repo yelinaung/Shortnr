@@ -11,6 +11,7 @@
 <form action="/index" method="POST" class="pure-form">
   <input type="url" id="url" name="url" class="pure-input-rounded">
   <button type="submit" value="Shorten" class="pure-button pure-button-primary">Generate</button>
+  <a href="http://localhost:4567/<%= @token %>">http://localhost:4567/<%= @token %></a>
   <br/>
 </form>
 </body>
