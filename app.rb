@@ -4,11 +4,11 @@ require 'redis'
 require './helper'
 
 before do
-  @redis = Redis.new(:host => "localhost", :port => 6379, :password => nil)
+  @redis = Redis.new
 end
 
 get '/' do
-  "This is index"
+  redirect "/index"
 end
 
 get '/index' do
@@ -16,11 +16,13 @@ get '/index' do
 end
 
 post '/index' do
-  erb :index
-  @sht_string = "Hello World " + sht
-
-  if (params[:url] =~ URI::regexp)
-    @token = sht
-  end
+  @token = sht
+  para_url = params[:url]
+  @redis.set("#{@token}",params[:url])
+  erb :result
 end
 
+get '/:token/?' do
+  url = @redis.get "#{params[:token]}"
+  redirect (url)
+end
