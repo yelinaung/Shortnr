@@ -3,6 +3,10 @@ require 'sinatra/reloader'
 require 'redis'
 require './helper'
 
+configure do
+  set :public_folder, File.dirname(__FILE__) + '/public'
+end
+
 before do
   @redis = Redis.new
 end
@@ -20,6 +24,8 @@ post '/index' do
     @token = sht
     @redis.set("#{@token}", params[:url])
     erb :index
+  else
+    @error ="Sorry. Something went wrong!"
   end
 end
 
