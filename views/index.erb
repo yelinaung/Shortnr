@@ -11,6 +11,7 @@
   </style>
 </head>
 <body>
+<a href="https://github.com/yelinaung/Shortnr"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 <% if @error %>
   <p> <%= @error %></p>
 <% end %>
@@ -31,6 +32,9 @@
   <% end %>
   </div>
   <div class="pure-u-1-3"></div>
+  <div class="pure-g">
+  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=yelinaung&amp;repo=Shortnr&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=yelinaung&repo=Shortnr&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe>
+  </div>
   <script src="../js/ZeroClipboard.min.js"></script>
   <script>
     var clip = new ZeroClipboard( document.getElementById("copy-button"), {
@@ -38,7 +42,6 @@
     });
 
     clip.on( 'load', function(client) {
-      // alert( "movie is loaded" );
     });
   </script>
 </body>

@@ -5,6 +5,7 @@ require './helper'
 
 configure do
   set :public_folder, File.dirname(__FILE__) + '/public'
+  set :bind, '0.0.0.0'
 end
 
 before do
